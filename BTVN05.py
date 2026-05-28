@@ -32,7 +32,7 @@ while True:
             find = False
 
             for index, order in enumerate(order_list):
-                parts = order.split("-")
+                parts = order.split(" - ")
                 id = parts[0]
                 status = parts[1]
 
@@ -55,7 +55,7 @@ while True:
             find = False
 
             for index, order in enumerate(order_list):
-                parts = order.split("-")
+                parts = order.split(" - ")
                 id = parts[0]
                 status = parts[1]
 
@@ -82,7 +82,7 @@ while True:
             find = False
 
             for index, order in enumerate(order_list):
-                parts = order.split("-")
+                parts = order.split(" - ")
                 id = parts[0]
                 status = parts[1]
 
