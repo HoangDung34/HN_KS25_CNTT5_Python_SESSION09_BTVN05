@@ -52,7 +52,6 @@ while True:
                 print("Không tìm thấy mã đơn hàng")
         case 3:
             order_id = input("Nhập mã đơn hàng cần cập nhật: ").strip().upper()
-
             find = False
 
             for index, order in enumerate(order_list):
@@ -76,6 +75,30 @@ while True:
                     elif status == "CANCELLED":
                         print("Đơn hàng đã bị hủy, không thể cập nhật")
                     break
+                if find == False:
+                    print("Không tìm thấy mã đơn hàng")
+        case 4:
+            order_id = input("Nhập mã đơn hàng cần cập nhật: ").strip().upper()
+            find = False
+
+            for index, order in enumerate(order_list):
+                parts = order.split("-")
+                id = parts[0]
+                status = parts[1]
+
+                if id == order_id:
+                    find = True
+
+                    if status == "PENDING" or status == "ASSIGNED":
+                        order_list[index] = f"{id} - CANCELLED"
+                        print("Hủy đơn thành công")
+                    elif status == "DELIVERING":
+                        print("Đơn hàng đang được giao, không thể hủy")
+                    elif status == "COMPLETED":
+                        print("Đơn hàng đã hoàn tất, không thể hủy")
+                    elif status == "CANCELLED":
+                        print("Đơn hàng đã được hủy trước đó")
+                    break    
                 if find == False:
                     print("Không tìm thấy mã đơn hàng")
         case 5:
